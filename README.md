@@ -24,7 +24,7 @@ The Network Diagnostic Tool is a comprehensive Java-based application designed f
 ## Setup and Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/network-diagnostic-tool.git
+   git clone https://github.com/lilei6809/network-diagnostic-tool.git
    ```
 
 2. Navigate to the project directory:
