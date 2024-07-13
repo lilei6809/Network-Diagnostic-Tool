@@ -1,8 +1,8 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:11-jre-slim
 
 WORKDIR /app
 
-COPY target/network-diagnostic-tool-1.0.0.jar app.jar
+COPY target/network-diagnostic-tool-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
