@@ -85,7 +85,5 @@ jobs:
 
     - name: Print Application Logs
       run: docker logs my-java-app
-      run: docker ps | grep my-java-app
 
-    - name: Print Application Logs
-      run: docker logs my-java-app
+    
