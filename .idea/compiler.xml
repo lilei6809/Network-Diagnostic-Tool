@@ -7,11 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="network-diagnostic-tool (1)" />
-        <module name="network-diagnostic-tool" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Network-Diagnostic-Tool" target="11" />
+      <module name="network-diagnostic-tool" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

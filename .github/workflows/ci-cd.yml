@@ -62,6 +62,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+
     
     steps:
     - name: Check Docker Installation
@@ -85,7 +86,4 @@ jobs:
 
     - name: Print Application Logs
       run: docker logs my-java-app
-      run: docker ps | grep my-java-app
 
-    - name: Print Application Logs
-      run: docker logs my-java-app
