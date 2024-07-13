@@ -58,29 +58,33 @@ jobs:
         # This step tags the local image with the Docker Hub repository name and pushes it to Docker Hub
         # The ${{ github.sha }} ensures each pushed image has a unique tag
 
-  deploy-local:
+  deploy:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-  
+    
     steps:
-      - name: Check Docker Installation
-        run: docker --version
-  
-      - name: Pull Latest Image
-        run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/my-java-app:${{ github.sha }}
-  
-      - name: Stop Existing Container
-        run: docker stop my-java-app || true && docker rm my-java-app || true
-  
-      - name: Run Docker Container
-        run: |
-          docker run -d \
-            --name my-java-app \
-            -p 8080:8080 \
-            ${{ secrets.DOCKER_HUB_USERNAME }}/my-java-app:${{ github.sha }}
+    - name: Check Docker Installation
+      run: docker --version
+
+    - name: Pull Latest Image
+      run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/my-java-app:${{ github.sha }}
+
+    - name: Stop Existing Container
+      run: docker stop my-java-app || true && docker rm my-java-app || true
+
+    - name: Run Docker Container
+      run: |
+        docker run -d \
+          --name my-java-app \
+          -p 8080:8080 \
+          ${{ secrets.DOCKER_HUB_USERNAME }}/my-java-app:${{ github.sha }}
 
     - name: Check Container Status
+      run: docker ps | grep my-java-app
+
+    - name: Print Application Logs
+      run: docker logs my-java-app
       run: docker ps | grep my-java-app
 
     - name: Print Application Logs
